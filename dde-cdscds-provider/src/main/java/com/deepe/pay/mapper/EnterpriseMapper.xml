@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deepe.pay.mapper.EnterpriseMapper">
+    <resultMap type="com.deepe.pay.domain.dto.EnterpriseDto" id="EnterpriseDtoResult">
+        <result property="name" column="name" />
+        <result property="type" column="type" />
+        <result property="area" column="area" />
+        <result property="status" column="status" />
+        <result property="address" column="address" />
+        <result property="dutyParagraph" column="duty_paragraph" />
+        <result property="createdBy" column="CREATED_BY" />
+        <result property="createdTime" column="CREATED_TIME" />
+        <result property="updatedBy" column="UPDATED_BY" />
+        <result property="updatedTime" column="UPDATED_TIME" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="phone" column="phone" />
+        <result property="businessNature" column="business_nature" />
+        <result property="province" column="province" />
+        <result property="city" column="city" />
+        <result property="contact" column="contact" />
+        <result property="department" column="department" />
+        <result property="position" column="position" />
+        <result property="businessPhone" column="business_phone" />
+        <result property="businessPost" column="business_post" />
+        <result property="fax" column="fax" />
+        <result property="website" column="website" />
+        <result property="email" column="email" />
+        <result property="bank" column="bank" />
+        <result property="bankAccount" column="bank_account" />
+        <result property="alias" column="alias" />
+        <result property="remark" column="remark" />
+        <result property="trustee" column="trustee" />
+        <result property="trusteePhone" column="trustee_phone" />
+        <result property="trusteeDepartment" column="trustee_department" />
+        <result property="trusteeIdCard" column="trustee_id_card" />
+        <result property="idCardUrl" column="id_card_url" />
+        <result property="idCardUrlNegative" column="id_card_url_negative" />
+        <result property="attorney" column="attorney" />
+        <result property="threeCertificates" column="three_certificates" />
+        <result property="uscc" column="uscc" />
+        <result property="legalRepresentative" column="legal_representative" />
+        <result property="funds" column="funds" />
+        <result property="startTime" column="start_time" />
+        <result property="endTime" column="end_time" />
+        <result property="longEffective" column="long_effective" />
+        <result property="establishmentDate" column="establishment_date" />
+        <result property="residence" column="residence" />
+        <result property="businessScope" column="business_scope" />
+        <result property="licenseRemark" column="license_remark" />
+        <result property="businessLicenseUrl" column="business_license_url" />
+        <result property="legalIdCardUrl" column="legal_id_card_url" />
+        <result property="legalIdCardUrlNegative" column="legal_id_card_url_negative" />
+        <result property="businessCode" column="business_code" />
+        <result property="businessName" column="business_name" />
+        <result property="effectiveDate" column="effective_date" />
+        <result property="deadline" column="deadline" />
+        <result property="businessLongEffective" column="business_long_effective" />
+        <result property="businessMethod" column="business_method" />
+        <result property="legal" column="legal" />
+        <result property="principal" column="principal" />
+        <result property="businessResidence" column="business_residence" />
+        <result property="businessPlace" column="business_place" />
+        <result property="businessRange" column="business_range" />
+        <result property="storeAddress" column="store_address" />
+        <result property="annexUrl" column="annex_url" />
+        <result property="role" column="role" />
+        <result property="id" column="id" />
+        <result property="number" column="number" />
+    </resultMap>
+    <select id="findList" resultType="com.deepe.pay.domain.eo.Enterprise">
+        SELECT * FROM enterprise WHERE 1=1
+    </select>
+
+    <update id="deleteByIds">
+        UPDATE enterprise set dr=1 where id in
+        <foreach collection="ids" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+</mapper>
